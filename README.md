@@ -205,7 +205,11 @@ Results: <br>
 |2015 05|Lumia 520 Black|8159257000|1  |
 |2015 05|Galaxy S4 (I9500)White|5415746500|2  |
 |2015 05|Galaxy S3 Mini I8190 Marble White|3901046000|3  |
-
+**Conclusion**
+- Sales of products fluctuate greatly from month to month, showing that the mobile phone market is very competitive and changing rapidly.
+- Galaxy Note II N7100 Marble White was the top selling product in January, February and March 2015. However, its sales decreased from January to March.
+- Lumia 520 Black surpassed Galaxy Note II N7100 Marble White to become the highest selling product in April and May 2015. This shows the change in consumer preferences.
+- Galaxy S3 Mini I8190 Marble White và Lumia 720 Black cũng là những sản phẩm có doanh thu cao trong các tháng 4 và 5, nhưng không đạt được vị trí cao nhất.
 
 
 ### **Q6: Which brand does the 26-30 customer group like?**
