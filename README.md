@@ -4,6 +4,37 @@ This project contains an Phone and Accessories Sales that I will utilize SQL on 
 
 ## II. Dataset
 [Phone_Database.xlsx](https://docs.google.com/spreadsheets/d/1Ms8F8yRGleDEtMX8yzEiABcDXqjFpQSY/edit?usp=sharing&ouid=116080139477453316139&rtpof=true&sd=true)
+<br> **Table:**
+<br> - *Phone_Sale*
+| Field Name | Data Type |
+|-------|-------|
+|TransactionID|STRING|
+|CustomerCode|STRING|
+|ProductName|STRING|
+|ProductBrand|STRING|
+|DatePurchase|STRING|
+|GeographicalArea|STRING|
+|Payment_Method|STRING|
+|Bank|STRING|
+|Color|STRING|
+|Carrier|STRING|
+|SexType|STRING|
+|YearOldRange|STRING|
+|Unitprice|INTEGER|
+|SalesValue|INTEGER|
+|Unit|INTEGER|
+
+
+<br> - *Accessories_Sales*
+| Field Name | Data Type |
+|-------|-------|
+| TransactionID | STRING |
+|CustomerCode|STRING|
+|Accessories_name|STRING|
+|Accessories_subname|STRING|
+|Unitprice|INTEGER|
+|Unit|INTEGER|
+|SalesValue|INTEGER|
 
 ## III. Exploring the Dataset
 In this project, I will write 10 query in BigQuery base on Google AnaLytics datase.
