@@ -3,9 +3,9 @@
 This project contains an Phone and Accessories Sales that I will utilize SQL on Google BigQuery. It may help the company to evalute customer from this data.
 
 ## II. Dataset
-[Phone_Database.xlsx](https://docs.google.com/spreadsheets/d/1Ms8F8yRGleDEtMX8yzEiABcDXqjFpQSY/edit?usp=sharing&ouid=116080139477453316139&rtpof=true&sd=true)
-<br> **Table:**
-<br> - *Phone_Sale*
+Database for this project: [Phone_Database.xlsx](https://docs.google.com/spreadsheets/d/1Ms8F8yRGleDEtMX8yzEiABcDXqjFpQSY/edit?usp=sharing&ouid=116080139477453316139&rtpof=true&sd=true)
+<br> **TABLE SCHEMA:**
+<br>  **Phone_Sale**
 | Field Name | Data Type |
 |-------|-------|
 |TransactionID|STRING|
@@ -25,7 +25,7 @@ This project contains an Phone and Accessories Sales that I will utilize SQL on 
 |Unit|INTEGER|
 
 
-<br> - *Accessories_Sales*
+<br> **Accessories_Sales**
 | Field Name | Data Type |
 |-------|-------|
 | TransactionID | STRING |
