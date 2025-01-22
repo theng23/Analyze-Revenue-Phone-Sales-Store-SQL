@@ -37,7 +37,7 @@ Database for this project: [Phone_Database.xlsx](https://docs.google.com/spreads
 |SalesValue|INTEGER|
 
 ## III. Exploring the Dataset
-In this project, I will write 10 query in BigQuery base on Google AnaLytics datase.
+In this project, I will write 10 query in BigQuery and used Phone_Database.
 ### **Q1.How many orders per month?**
 ``` sql
 SELECT
@@ -65,7 +65,7 @@ Results: <br>
 ``` sql
 SELECT
   FORMAT_DATE('%Y %m',PARSE_DATE('%Y %m %d',DatePurchase)) month
-  ,COUNT(DISTINCT CustomerCode) so_khach_hang --count customer make purchase
+  ,COUNT(DISTINCT CustomerCode) AS count_customers --count customer make purchase
 FROM
   `hackathon-446917.midterm_SQL.hackaton_phones_sales`
 GROUP BY 
@@ -75,7 +75,7 @@ ORDER BY
 ;
 ```
 Results: <br>
-|month  |so_khach_hang|
+|month  |count_customers|
 |-------|-------------|
 |2015 01|16130        |
 |2015 02|19217        |
@@ -236,11 +236,12 @@ Results: <br>
 |2015 05|Lumia 520 Black|8159257000|1  |
 |2015 05|Galaxy S4 (I9500)White|5415746500|2  |
 |2015 05|Galaxy S3 Mini I8190 Marble White|3901046000|3  |
+
 **Conclusion**
 - Sales of products fluctuate greatly from month to month, showing that the mobile phone market is very competitive and changing rapidly.
 - Galaxy Note II N7100 Marble White was the top selling product in January, February and March 2015. However, its sales decreased from January to March.
 - Lumia 520 Black surpassed Galaxy Note II N7100 Marble White to become the highest selling product in April and May 2015. This shows the change in consumer preferences.
-- Galaxy S3 Mini I8190 Marble White và Lumia 720 Black cũng là những sản phẩm có doanh thu cao trong các tháng 4 và 5, nhưng không đạt được vị trí cao nhất.
+- Galaxy S3 Mini I8190 Marble White and Lumia 720 Black were also products with high sales in April and May, but did not reach the top position.
 
 
 ### **Q6: Which brand does the 26-30 customer group like?**
@@ -322,7 +323,7 @@ SELECT
   YearOldRange
  ,COUNT(Accessories_name) AS accessories_sale --count the number of Accessories_name
  ,COUNT(*) AS total --count total
- ,COUNT(Accessories_name)/COUNT(*) AS rate_access --rate of customers buying accessories
+ ,ROUND(COUNT(Accessories_name)/COUNT(*)*100.0,2) AS rate_access --rate of customers buying accessories
 from
   raw_data
 group by 
@@ -332,12 +333,12 @@ group by
 Results: <br>
 |YearOldRange|accessories_sale|total|rate_access|
 |------------|----------------|-----|-----------|
-|Trên 40     |731             |1911 |38.252223966509682|
-|26-30       |21491           |56309|38.166190129464205|
-|21-25       |725             |1929 |37.584240539139451|
-|Dưới 21     |1159            |3175 |36.503937007874015|
-|31-35       |7107            |19621|36.221395443657308|
-|36-40       |4428            |12361|35.8223444705121|
+|Trên 40     |731             |1911 |38.25|
+|26-30       |21491           |56309|38.17|
+|21-25       |725             |1929 |37.58|
+|Dưới 21     |1159            |3175 |36.5|
+|31-35       |7107            |19621|36.22|
+|36-40       |4428            |12361|35.82|
 
 
 **Conclusion**
@@ -392,6 +393,7 @@ Results: <br>
 |Q-MOBILE    |0               |1332 |0.0           |
 |Q-SMART     |0               |15531|0.0           |
 |SONY        |0               |4642 |0.0           |
+
 **Conclusion**
 - Customers from SAMSUNG, BLACKBERRY, APPLE IPHONE alway willing buy accessories with 100% rate.
 - Other Product Brand have 0% rate so need to improve accessory products and adjust marketing strategies for these brands. Or consider stopping the accessory business of these brands.
@@ -403,7 +405,7 @@ SELECT
   YearOldRange
   ,COUNT(Bank) installments
   ,COUNT(*) total_orders
-  ,COUNT(Bank)/COUNT(*) AS rate_installments
+  ,ROUND(COUNT(Bank)/COUNT(*)*100.0,2) AS rate_installments
 FROM
   `hackathon-446917.midterm_SQL.hackaton_phones_sales`
 GROUP BY
@@ -415,12 +417,12 @@ ORDER BY
 Results:<br>
 |YearOldRange|installments|total_orders|rate_installments|
 |------------|------------|------------|-----------------|
-|31-35       |1549        |19621       |0.078946027215738235|
-|Dưới 21     |218         |3175        |0.06866141732283465|
-|26-30       |3616        |56309       |0.064217087854517046|
-|21-25       |121         |1929        |0.062726801451529285|
-|Trên 40     |119         |1911        |0.062271062271062272|
-|36-40       |759         |12361       |0.061402799126284283|
+|31-35       |1549        |19621       |7.89|
+|Dưới 21     |218         |3175        |6.87|
+|26-30       |3616        |56309       |6.42|
+|21-25       |121         |1929        |6.27|
+|Trên 40     |119         |1911        |6.23|
+|36-40       |759         |12361       |6.14|
 
 
 ### **Q10: Find the phone company that is most commonly purchased in installments**
@@ -429,7 +431,7 @@ SELECT
   ProductBrand
   ,COUNT(Bank) installments
   ,COUNT(*) total_orders
-  ,COUNT(Bank)/COUNT(*) AS rate_installments
+  ,ROUND(COUNT(Bank)/COUNT(*)*100.0,2) AS rate_installments
 FROM  
   `hackathon-446917.midterm_SQL.hackaton_phones_sales`
 GROUP BY
@@ -441,16 +443,16 @@ ORDER BY
 Results: <br>
 |ProductBrand|installments|total_orders|rate_installments|
 |------------|------------|------------|-----------------|
-|APPLE IPHONE|169         |1318        |0.12822458270106221|
-|SONY        |586         |4642        |0.12623869021973289|
-|HTC         |323         |2987        |0.10813525276196853|
-|NOKIA       |1851        |17584       |0.10526615104640583|
-|LG          |283         |3155        |0.089698890649762289|
-|LENOVO      |355         |5410        |0.065619223659889092|
-|SAMSUNG     |2232        |34215       |0.065234546251644016|
-|BLACKBERRY  |4           |108         |0.037037037037037035|
-|Q-SMART     |464         |15531       |0.029875732406155431|
-|Mobiistar   |115         |8986        |0.01279768528822613|
+|APPLE IPHONE|169         |1318        |12.82|
+|SONY        |586         |4642        |12.62|
+|HTC         |323         |2987        |10.81|
+|NOKIA       |1851        |17584       |10.53|
+|LG          |283         |3155        |8.97|
+|LENOVO      |355         |5410        |6.56|
+|SAMSUNG     |2232        |34215       |6.52|
+|BLACKBERRY  |4           |108         |3.7|
+|Q-SMART     |464         |15531       |2.99|
+|Mobiistar   |115         |8986        |1.28|
 |Q-MOBILE    |0           |1332        |0.0              |
 |F-MOBILE    |0           |13          |0.0              |
 |HUAWEI      |0           |24          |0.0              |
