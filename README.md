@@ -1,11 +1,29 @@
-# Phone Sales Analyze |Big Querry, SQL
+# Analyze-Revenue-Phone-Sales-Store-SQL|Big Querry, SQL
 ## I. Introduction
-This project contains an Phone and Accessories Sales that I will utilize SQL on Google BigQuery. It may help the company to evalute customer from this data.
+This project contains an Phone and Accessories Sales that I will utilize SQL on Google BigQuery. This project focus on analyzing order volume, customer preferences, revenue, and shopping behavior insights.
+<details>
+<summary>Finding insight from this question:</summary>
+
+- How many orders per month?
+- How many customers make purchases each month?
+- Which brand of phone do Male and Female customers like the most? Top 3? (based on TransactionID)
+- Which age group buys the most, Which age group brings in the most revenue?Can you draw any conclusions (use the Unit field to add up the purchase quantity)
+- Top 3 products that bring in the highest revenue each month? Provide insight for business if any
+- Which brand does the 26-30 customer group like?
+- Is the 26-30 customer group ready to buy more accessories?
+- Does each company's customer group buy accessories and insurance?
+- Which age group has the most buying behavior in installments?
+- Find the phone company that is most commonly purchased in installments
+
+</details>
 
 ## II. Dataset
 Database for this project: [Phone_Database.xlsx](https://docs.google.com/spreadsheets/d/1Ms8F8yRGleDEtMX8yzEiABcDXqjFpQSY/edit?usp=sharing&ouid=116080139477453316139&rtpof=true&sd=true)
 <br> **TABLE SCHEMA:**
-<br>  **Phone_Sale**
+
+<details>
+<summary>Phone_Sale:</summary>
+  
 | Field Name | Data Type |
 |-------|-------|
 |TransactionID|STRING|
@@ -24,8 +42,11 @@ Database for this project: [Phone_Database.xlsx](https://docs.google.com/spreads
 |SalesValue|INTEGER|
 |Unit|INTEGER|
 
+</details>
 
-<br> **Accessories_Sales**
+<details>
+<summary>Accessories_Sales:</summary> 
+  
 | Field Name | Data Type |
 |-------|-------|
 | TransactionID | STRING |
@@ -35,6 +56,8 @@ Database for this project: [Phone_Database.xlsx](https://docs.google.com/spreads
 |Unitprice|INTEGER|
 |Unit|INTEGER|
 |SalesValue|INTEGER|
+
+</details>
 
 ## III. Exploring the Dataset
 In this project, I will write 10 query in BigQuery and used Phone_Database.
