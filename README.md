@@ -1,6 +1,6 @@
-# Analyze-Revenue-Phone-Sales-Store-SQL|Big Querry, SQL
-## I. Introduction
-This project contains an Phone and Accessories Sales that I will utilize SQL on Google BigQuery. This project focus on analyzing order volume, customer preferences, revenue, and shopping behavior insights.
+# 📊Analyze-Revenue-Phone-Sales-Store-SQL|Big Querry, SQL
+## 📑I. Introduction
+This project contains an Phone and Accessories Sales from a Phone Store that utilize SQL on Google BigQuery. This project focus on analyzing order volume, customer preferences, revenue, and shopping behavior insights.
 <details>
 <summary>Finding insight from this question:</summary>
 
@@ -17,7 +17,7 @@ This project contains an Phone and Accessories Sales that I will utilize SQL on 
 
 </details>
 
-## II. Dataset
+## 📂II. Dataset
 Database for this project: [Phone_Database.xlsx](https://docs.google.com/spreadsheets/d/1Ms8F8yRGleDEtMX8yzEiABcDXqjFpQSY/edit?usp=sharing&ouid=116080139477453316139&rtpof=true&sd=true)
 <br> **TABLE SCHEMA:**
 
@@ -59,7 +59,7 @@ Database for this project: [Phone_Database.xlsx](https://docs.google.com/spreads
 
 </details>
 
-## III. Exploring the Dataset
+## ⚒️III. Exploring the Dataset
 In this project, I will write 10 query in BigQuery and used Phone_Database.
 ### **Q1.How many orders per month?**
 - SQL Code
@@ -85,7 +85,7 @@ ORDER BY
 |2015 04|19570      |
 |2015 05|20830      |
 
-Order volume fluctuates, peaking in May (20,830) and dipping in January (16,963). Seasonal demand or promotions may influence these shifts.
+**Conclusion:** Order volume fluctuates, peaking in May (20,830) and dipping in January (16,963). Seasonal demand or promotions may influence these shifts.
 
 ###  Q2. How many customers make purchases each month?
 - SQL Code
@@ -112,7 +112,7 @@ ORDER BY
 |2015 04|18828        |
 |2015 05|19934        |
 
-Order volume fluctuates from 16,963 in January to 20,830 in May, showing an overall upward trend with occasional dips, likely influenced by seasonality or promotions.
+**Conclusion:** Order volume fluctuates from 16,963 in January to 20,830 in May, showing an overall upward trend with occasional dips, likely influenced by seasonality or promotions.
 
 ###  **Q3. Which brand of phone do Male and Female customers like the most? Top 3? (based on TransactionID)**
 - SQL Code
@@ -156,14 +156,17 @@ ORDER BY
 
 |SexType|ProductBrand|transaction_count|brand_rank|
 |-------|------------|-----------------|----------|
-|NAM    |SAMSUNG     |15895            |1         |
-|NAM    |NOKIA       |9869             |2         |
-|NAM    |Q-SMART     |8395             |3         |
-|NU     |SAMSUNG     |18320            |1         |
-|NU     |NOKIA       |7715             |2         |
-|NU     |Q-SMART     |7136             |3         |
+|Male    |SAMSUNG     |15895            |1         |
+|Male    |NOKIA       |9869             |2         |
+|Male    |Q-SMART     |8395             |3         |
+|Female     |SAMSUNG     |18320            |1         |
+|Female     |NOKIA       |7715             |2         |
+|Female     |Q-SMART     |7136             |3         |
+
+**Conclusion:**
 
 ###  **Q4: Which age group buys the most, Which age group brings in the most revenue?Can you draw any conclusions (use the Unit field to add up the purchase quantity)**
+- SQL Code
 ```sql 
 WITH sales_by_age AS ( --Find total unit by age group
   SELECT
@@ -217,6 +220,7 @@ ORDER BY
 - The 31-35 age group is the leading age group in terms of revenue, and ranks second in terms of quantity sold. This age group has strong financial capacity, is willing to pay for more expensive products, equivalent to higher quality and a longer life cycle than the 26-30 group.
 
 ### **Q5: Top 3 products that bring in the highest revenue each month? Provide insight for business if any**
+- SQL Code
 ```sql
 WITH raw_data AS ( --Get revenue by month and prodct
   SELECT
@@ -252,7 +256,9 @@ ORDER BY
   ,rk
 ;
 ```
-Results: <br>
+<details>
+<summary>Results:</summary>
+
 |month  |ProductName|revenue|rk |
 |-------|-----------|-------|---|
 |2015 01|Galaxy Note II N7100 Marble White|6325813000|1  |
@@ -271,6 +277,8 @@ Results: <br>
 |2015 05|Galaxy S4 (I9500)White|5415746500|2  |
 |2015 05|Galaxy S3 Mini I8190 Marble White|3901046000|3  |
 
+</details>
+
 **Conclusion**
 - Sales of products fluctuate greatly from month to month, showing that the mobile phone market is very competitive and changing rapidly.
 - Galaxy Note II N7100 Marble White was the top selling product in January, February and March 2015. However, its sales decreased from January to March.
@@ -279,6 +287,7 @@ Results: <br>
 
 
 ### **Q6: Which brand does the 26-30 customer group like?**
+- SQL Code
 ```sql
 WITH raw_data AS (
   SELECT
@@ -333,6 +342,7 @@ If the inventory of Q-Smart and Nokia is high and the company wants to reduce it
 
 
 ### **Q7: Is the 26-30 customer group ready to buy more accessories?**
+- SQL Code
 ```sql
 WITH raw_data AS ( --Find age group data 26-30
   SELECT
@@ -378,6 +388,7 @@ Results: <br>
 **Conclusion**
 - With a rate of 38.16%, the rate of customers from 26-30 willing to buy more accessories is also quite high, however the rate of customers over 40 is higher at 38.25%. So to optimize profits, you can consider approaching this customer group.
 ### **Q8: Does each company's customer group buy accessories and insurance?**
+- SQL Code
 ```sql
 WITH raw_data AS (--check how many people by accessories and insurance
   SELECT
@@ -433,7 +444,7 @@ Results: <br>
 - Other Product Brand have 0% rate so need to improve accessory products and adjust marketing strategies for these brands. Or consider stopping the accessory business of these brands.
 
 ### **Q9. Which age group has the most buying behavior in installments?**
-
+- SQL Code
 ```sql
 SELECT
   YearOldRange
@@ -458,6 +469,10 @@ Results:<br>
 |Over 40     |119         |1911        |6.23|
 |36-40       |759         |12361       |6.14|
 
+**Conclusion**
+- The 31-35 age group has the highest rate of installment usage at 7.89%, suggesting a preference for financing options.
+- The Under 21 age group follows closely behind at 6.87%, indicating younger consumers may also rely on installment plans despite lower total orders.
+- The 26-30 age group has the highest total orders (56,309), but a lower installment rate (6.42%), suggesting fewer users opt for financing compared to younger groups.
 
 ### **Q10: Find the phone company that is most commonly purchased in installments**
 ```sql
@@ -491,3 +506,14 @@ Results: <br>
 |F-MOBILE    |0           |13          |0.0              |
 |HUAWEI      |0           |24          |0.0              |
 |ALCATEL     |0           |1           |0.0              |
+
+
+**Conclusion:** 
+- Apple iPhone and Sony have the highest installment usage rates, at 12.82% and 12.62% respectively, despite having fewer total orders than brands like Nokia and Samsung.
+- Nokia and HTC also show relatively high installment usage rates at 10.53% and 10.81%.
+- Meanwhile, brands like Q-Smart, Mobistar, and Q-Mobile have significantly lower installment rates, indicating less reliance on financing options.
+
+
+
+## 🔎IV. Conclusion 
+👉🏻 
