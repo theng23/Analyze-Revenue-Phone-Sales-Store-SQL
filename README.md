@@ -4,16 +4,16 @@ This project contains an Phone and Accessories Sales that I will utilize SQL on 
 <details>
 <summary>Finding insight from this question:</summary>
 
-- How many orders per month?
-- How many customers make purchases each month?
-- Which brand of phone do Male and Female customers like the most? Top 3? (based on TransactionID)
-- Which age group buys the most, Which age group brings in the most revenue?Can you draw any conclusions (use the Unit field to add up the purchase quantity)
-- Top 3 products that bring in the highest revenue each month? Provide insight for business if any
-- Which brand does the 26-30 customer group like?
-- Is the 26-30 customer group ready to buy more accessories?
-- Does each company's customer group buy accessories and insurance?
-- Which age group has the most buying behavior in installments?
-- Find the phone company that is most commonly purchased in installments
+1️⃣ How many orders per month?\
+2️⃣ How many customers make purchases each month?\
+3️⃣ Which brand of phone do Male and Female customers like the most? Top 3? (based on TransactionID)\
+4️⃣ Which age group buys the most, Which age group brings in the most revenue?Can you draw any conclusions (use the Unit field to add up the purchase quantity)\
+5️⃣ Top 3 products that bring in the highest revenue each month? Provide insight for business if any\
+6️⃣ Which brand does the 26-30 customer group like?\
+7️⃣ Is the 26-30 customer group ready to buy more accessories?\
+8️⃣ Does each company's customer group buy accessories and insurance?\
+9️⃣ Which age group has the most buying behavior in installments?\
+🔟 Find the phone company that is most commonly purchased in installments\
 
 </details>
 
@@ -62,6 +62,7 @@ Database for this project: [Phone_Database.xlsx](https://docs.google.com/spreads
 ## III. Exploring the Dataset
 In this project, I will write 10 query in BigQuery and used Phone_Database.
 ### **Q1.How many orders per month?**
+- SQL Code
 ``` sql
 SELECT
   FORMAT_DATE('%Y %m',PARSE_DATE('%Y %m %d',DatePurchase)) AS month
@@ -74,7 +75,8 @@ ORDER BY
   month
 ;
 ```
-Results: <br>
+- Results: <br>
+
 |month  |count_order|
 |-------|-----------|
 |2015 01|16963      |
@@ -83,8 +85,11 @@ Results: <br>
 |2015 04|19570      |
 |2015 05|20830      |
 
+Order volume fluctuates, peaking in May (20,830) and dipping in January (16,963). Seasonal demand or promotions may influence these shifts.
 
 ###  Q2. How many customers make purchases each month?
+- SQL Code
+
 ``` sql
 SELECT
   FORMAT_DATE('%Y %m',PARSE_DATE('%Y %m %d',DatePurchase)) month
@@ -97,7 +102,8 @@ ORDER BY
   month
 ;
 ```
-Results: <br>
+- Results: <br>
+
 |month  |count_customers|
 |-------|-------------|
 |2015 01|16130        |
@@ -106,8 +112,10 @@ Results: <br>
 |2015 04|18828        |
 |2015 05|19934        |
 
+Order volume fluctuates from 16,963 in January to 20,830 in May, showing an overall upward trend with occasional dips, likely influenced by seasonality or promotions.
 
 ###  **Q3. Which brand of phone do Male and Female customers like the most? Top 3? (based on TransactionID)**
+- SQL Code
 ```sql
 WITH sales_by_gender_brand AS ( --find customer group purchase phone
     SELECT
@@ -143,7 +151,9 @@ ORDER BY
     ,brand_rank
 ;
 ```
-Results: <br>
+
+- Results:
+
 |SexType|ProductBrand|transaction_count|brand_rank|
 |-------|------------|-----------------|----------|
 |NAM    |SAMSUNG     |15895            |1         |
@@ -190,14 +200,15 @@ FROM
 ORDER BY
   rank_units;
 ```
-Results: <br>
+- Results:
+
 |YearOldRange|total_units|total_revenue|rank_units|rank_revenue|
 |------------|-----------|-------------|----------|------------|
 |26-30       |43516      |128660298500 |1         |2           |
 |31-35       |15389      |216179303600 |2         |1           |
 |36-40       |9642       |101302253500 |3         |3           |
-|Dưới 21     |2380       |9850497000   |4         |4           |
-|Trên 40     |1466       |5130143500   |5         |5           |
+|Under 21     |2380       |9850497000   |4         |4           |
+|Over 40     |1466       |5130143500   |5         |5           |
 |21-25       |1462       |4272092000   |6         |6           |
 
 **Conclusion** <br>
@@ -356,10 +367,10 @@ group by
 Results: <br>
 |YearOldRange|accessories_sale|total|rate_access|
 |------------|----------------|-----|-----------|
-|Trên 40     |731             |1911 |38.25|
+|Over 40     |731             |1911 |38.25|
 |26-30       |21491           |56309|38.17|
 |21-25       |725             |1929 |37.58|
-|Dưới 21     |1159            |3175 |36.5|
+|Under 21     |1159            |3175 |36.5|
 |31-35       |7107            |19621|36.22|
 |36-40       |4428            |12361|35.82|
 
@@ -441,10 +452,10 @@ Results:<br>
 |YearOldRange|installments|total_orders|rate_installments|
 |------------|------------|------------|-----------------|
 |31-35       |1549        |19621       |7.89|
-|Dưới 21     |218         |3175        |6.87|
+|Under 21     |218         |3175        |6.87|
 |26-30       |3616        |56309       |6.42|
 |21-25       |121         |1929        |6.27|
-|Trên 40     |119         |1911        |6.23|
+|Over 40     |119         |1911        |6.23|
 |36-40       |759         |12361       |6.14|
 
 
