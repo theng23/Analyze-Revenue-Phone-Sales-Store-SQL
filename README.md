@@ -1,4 +1,4 @@
-# 📊Analyze-Revenue-Phone-Sales-Store-SQL|Big Querry, SQL
+# 📊Analyze Revenue Phone Sales Store|Big Querry, SQL
 ## 📑I. Introduction
 ### 📖 What is this project about?
 Phone Store want to grasp information about order volume, customer preferences, revenue and shopping behavior insight. This project contains an Phone and Accessories Sales from a Phone Store that utilize SQL on Google BigQuery. In this project focus on analyzing overview of sale and finding insight from this questions.
