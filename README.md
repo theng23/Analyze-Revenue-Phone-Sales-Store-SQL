@@ -1,12 +1,12 @@
-# 📊Analyze Revenue Phone Sales Store|Big Querry, SQL
-## 📑I. Introduction
+# 📊 Analyze Revenue Phone Sales Store|Big Querry, SQL
+## 📑 I. Introduction
 ### 📖 What is this project about?
 - Phone Store want to grasp information about order volume, customer preferences, revenue and shopping behavior insight.
 - This project contains an Phone and Accessories Sales from a Phone Store that utilize SQL on Google BigQuery.
 - Focus on analyzing overview of sale and finding insight from this questions.
 
 <details>
-<summary>❓Business question:</summary>
+<summary>❓ Business question:</summary>
 
 1️⃣ How many orders per month?\
 2️⃣ How many customers make purchases each month?\
@@ -21,7 +21,7 @@
 
 </details>
 
-## 📂II. Dataset
+## 📂 II. Dataset
 Database for this project: [Phone_Database.xlsx](https://docs.google.com/spreadsheets/d/1Ms8F8yRGleDEtMX8yzEiABcDXqjFpQSY/edit?usp=sharing&ouid=116080139477453316139&rtpof=true&sd=true)
 <br> **TABLE SCHEMA:**
 
@@ -63,7 +63,7 @@ Database for this project: [Phone_Database.xlsx](https://docs.google.com/spreads
 
 </details>
 
-## ⚒️III. Exploring the Dataset
+## ⚒️ III. Exploring the Dataset
 In this project, I will write 10 query in BigQuery and used Phone_Database.
 ### **Q1.How many orders per month?**
 - SQL Code
@@ -519,7 +519,7 @@ Results: <br>
 
 
 
-## 🔎IV. Conclusion 
+## 🔎 IV. Conclusion 
 👉🏻 Provide insight for store which brand have a highest revenue. These findings can inform decisions such as inventory management, marketing campaigns, personalized offering.\
 👉🏻 The Phone and Accessories Sales analysis provides valuable insights into customer behavior, order trends, and revenue patterns.\
 👉🏻 The project uncovers key metrics that aid in optimizing sales strategies and improving the shopping experience.
